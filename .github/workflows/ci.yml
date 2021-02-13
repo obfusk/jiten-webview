@@ -1,0 +1,15 @@
+name: CI
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: |
+        ./gradlew assembleRelease
+    - uses: actions/upload-artifact@v2
+      with:
+        name: jiten-webview-APK
+        path: |
+          app/build/outputs/apk/release/app-release-unsigned.apk
