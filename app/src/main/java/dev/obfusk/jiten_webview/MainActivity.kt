@@ -10,7 +10,7 @@ import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
-    val website = "https://jiten.obfusk.dev"
+    val server = "jiten.obfusk.dev"
     private var webview: WebView? = null
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -24,31 +24,35 @@ class MainActivity : AppCompatActivity() {
                 builtInZoomControls = true
                 displayZoomControls = false
             }
-            webViewClient = object: WebViewClient() {
-                override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
-                    if (url?.startsWith(website) != true) {
-                        val i = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                        startActivity(i)
-                        return true
+            webViewClient = object : WebViewClient() {
+                override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean =
+                    Uri.parse(url).let {
+                        if (it.host != server) {
+                            startActivity(Intent(Intent.ACTION_VIEW, it))
+                            true
+                        } else {
+                            false
+                        }
                     }
-                    return false
-                }
 
                 override fun onPageFinished(view: WebView?, url: String?) {
                     CookieManager.getInstance().flush()
                 }
             }
-            loadUrl(website)
+            loadUrl("https://$server")
         }
         onNewIntent(intent)
     }
 
     override fun onNewIntent(intent: Intent?) {
-        val url = intent?.data?.toString()
-        if (url?.startsWith(website) == true) webview?.loadUrl(url)
+        super.onNewIntent(intent)
+        intent?.data?.toString()?.let { url ->
+            Uri.parse(url).let { if (it.host == server) webview?.loadUrl(url) }
+        }
     }
 
     override fun onBackPressed() {
-        if (webview?.canGoBack() == true) webview?.goBack() else super.onBackPressed()
+        webview?.let { if (it.canGoBack()) { it.goBack(); return } }
+        super.onBackPressed()
     }
 }
