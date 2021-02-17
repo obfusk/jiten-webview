@@ -2,7 +2,7 @@
 
     File        : README.md
     Maintainer  : Felix C. Stegerman <flx@obfusk.net>
-    Date        : 2021-02-13
+    Date        : 2021-02-17
 
     Copyright   : Copyright (C) 2021  Felix C. Stegerman
     Version     : v1.0
@@ -22,6 +22,10 @@ alternative to the existing **offline** android app -- wraps the
 [Jiten Japanese Dictionary](https://github.com/obfusk/jiten)
 in a webview, which has some advantages over simply using a web
 browser.
+
+<!--
+[<img src="badges/google-play.png" alt="Get it on Google Play" height="60">](https://play.google.com/store/apps/details?id=dev.obfusk.jiten_webview)
+-->
 
 ## License
 
