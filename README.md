@@ -2,10 +2,10 @@
 
     File        : README.md
     Maintainer  : Felix C. Stegerman <flx@obfusk.net>
-    Date        : 2021-02-17
+    Date        : 2021-02-24
 
     Copyright   : Copyright (C) 2021  Felix C. Stegerman
-    Version     : v1.0
+    Version     : v1.0.1
     License     : GPLv3+
 
 }}}1 -->
@@ -23,9 +23,17 @@ alternative to the existing **offline** android app -- wraps the
 in a webview, which has some advantages over simply using a web
 browser.
 
-<!--
 [<img src="badges/google-play.png" alt="Get it on Google Play" height="60">](https://play.google.com/store/apps/details?id=dev.obfusk.jiten_webview)
--->
+[<img src="badges/fdroid.png" alt="Get it on F-Droid" height="60">](#not-yet-available)
+
+<!-- [](https://f-droid.org/app/dev.obfusk.jiten_webview) -->
+
+NB: unfortunately, **jiten-webview is not (yet) available in the
+official F-Droid repository**.  You can use
+[**obfusk's f-droid repo**](https://obfusk.dev/fdroid/repo?fingerprint=2A21B7FFC93B878724B1991C05DAE113C72B93A556C193F49B5D3342884798B7)
+instead: this contains the exact same APKs available via Google Play,
+as well as occasional beta versions (which are only installed when
+selected manually).
 
 ## License
 
