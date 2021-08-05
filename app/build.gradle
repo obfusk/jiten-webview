@@ -11,8 +11,8 @@ android {
         applicationId "dev.obfusk.jiten_webview"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 202108010
-        versionName "1.0.3"
+        versionCode 202108040
+        versionName "1.0.3-playstore"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
